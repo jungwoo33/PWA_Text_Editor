@@ -1,19 +1,19 @@
 {
   "name": "JATE",
   "version": "1.0.0",
-  "description": "",
+  "description": "PWA_TEXT_EDITOR",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "webpack-dev-server",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server && nodemon server.js",
+    "build": "cd client && npm install",
+    "install": "cd client && npm install",
+    "client": "cd client && npm start"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jungwoo Lee & 2U",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "idb": "^7.1.1",
