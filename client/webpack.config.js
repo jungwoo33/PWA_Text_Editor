@@ -24,6 +24,7 @@ module.exports = () => {
     plugins: [
       // jw, I will use ./index.html as a template for the manifest file
       // jw, updated from 26-Stu_Manifest
+      // jw, So, I don't need to add explict lines to the HTML file
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'JATE',
@@ -48,6 +49,7 @@ module.exports = () => {
       
     ],
 
+    // jw, add a new set of rules to handle images
     module: {
       rules: [
         // jw, updated from 26-Stu_Manifest
