@@ -19,26 +19,31 @@ const initdb = async () =>
 // jw, updated from lecture #24
 export const putDb = async (content) => {
   console.log('PUT to the database');
-  const todosDb = await openDB('todos', 1);
-  const tx = todosDb.transaction('todos', 'readwrite');
-  const store = tx.objectStore('todos');
-  const request = store.put({ id: id, todo: content });
+  const jateDb = await openDB('jate', 1);
+  const tx = jateDb.transaction('jate', 'readwrite');
+  const store = tx.objectStore('jate');
+  const request = store.put({ id: id, value: content }); // jw, I may need to change this
   const result = await request;
-  console.log('🚀 - data saved to the database', result);  
-  console.error('putDb not implemented');
+  result? 
+    console.log('🚀 - data saved to the database', result)
+  :
+    console.error('putDb not implemented');
+  
+  // console.log('🚀 - data saved to the database', result);  
+  //console.error('putDb not implemented');
 };
 
 // TODO: Add logic for a method that gets all the content from the database
 // jw, updated from lecture #24
 export const getDb = async () => {
   console.log('GET all from the database');
-  const todosDb = await openDB('todos', 1);
-  const tx = todosDb.transaction('todos', 'readonly');
-  const store = tx.objectStore('todos');
+  const jateDb = await openDB('jate', 1);
+  const tx = todosDb.transaction('jate', 'readonly');
+  const store = tx.objectStore('jate');
   const request = store.getAll();
   const result = await request;
   console.log('result.value', result);
   return result;  
-  console.error('getDb not implemented');
+  //console.error('getDb not implemented');
 };
 initdb();
