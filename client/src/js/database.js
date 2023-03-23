@@ -1,8 +1,9 @@
 // jw, this is related to the lecture#21 ~ #24
 // jw, so, our database name is "jate"
 import { openDB } from 'idb';
-const dbName = 'jate'; // jw, this is the name of the database
+//const dbName = 'jate'; // jw, this is the name of the database
 
+// jw, here, jate is the name of the database
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -22,7 +23,8 @@ export const putDb = async (content) => {
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  const request = store.put({ id: id, value: content }); // jw, I may need to change this
+  //const request = store.put({ id: id, value: content }); // jw, I may need to change this
+  const request = store.put({ id: 1, value: content }); // jw, I may need to change this
   const result = await request;
   result? 
     console.log('🚀 - data saved to the database', result)
@@ -38,7 +40,7 @@ export const putDb = async (content) => {
 export const getDb = async () => {
   console.log('GET all from the database');
   const jateDb = await openDB('jate', 1);
-  const tx = todosDb.transaction('jate', 'readonly');
+  const tx = jateDb.transaction('jate', 'readonly');
   const store = tx.objectStore('jate');
   const request = store.getAll();
   const result = await request;
