@@ -24,7 +24,7 @@ export const putDb = async (content) => {
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
   //const request = store.put({ id: id, value: content }); // jw, I may need to change this
-  const request = store.put({ id: 1, value: content }); // jw, I may need to change this
+  const request = store.put({ id: 0, value: content }); // jw, store the initial cache value to #0
   const result = await request;
   result? 
     console.log('🚀 - data saved to the database', result)
@@ -45,7 +45,8 @@ export const getDb = async () => {
   const request = store.getAll();
   const result = await request;
   console.log('result.value', result);
-  return result;
+  //return result;
+  return result?.value;
   //console.error('getDb not implemented');
 };
 initdb();
