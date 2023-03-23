@@ -29,9 +29,10 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 // TODO: Implement asset caching
 // jw, updating from lecture #19-InjectManifestexample:
 registerRoute(
-  ({ request }) => request.destination === 'image',
+  //({ request }) => request.destination === 'image',
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new CacheFirst({
-    cacheName: 'my-image-cache',
+    cacheName: 'asset-cache',
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200],
