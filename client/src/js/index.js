@@ -1,6 +1,6 @@
 import { Workbox } from 'workbox-window';
 import Editor from './editor';
-import './database';
+import './database'; // jw, this will import putDb and getDb from database.js
 import '../css/style.css'; // jw, import CSS file into entry point to add as dependency
 
 const main = document.querySelector('#main');
