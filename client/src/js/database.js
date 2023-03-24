@@ -20,16 +20,20 @@ const initdb = async () =>
 // jw, updated from lecture #24
 export const putDb = async (content) => {
   console.log('PUT to the database');
+  console.log(content, 'content');
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
   //const request = store.put({ id: id, value: content }); // jw, I may need to change this
-  const request = store.put({ id: 0, value: content }); // jw, store the initial cache value to #0
+  const request = store.put({ id: 1, value: content }); // jw, store the initial cache value to #0
   const result = await request;
-  result? 
-    console.log('🚀 - data saved to the database', result)
-  :
-    console.error('putDb not implemented');
+  //console.log(result, 'result');
+  console.log('🚀 - data saved to the database', result)
+  
+  // result? 
+  //   console.log('🚀 - data saved to the database', result)
+  // :
+  //   console.error('putDb not implemented');
   
   // console.log('🚀 - data saved to the database', result);  
   //console.error('putDb not implemented');
@@ -46,7 +50,7 @@ export const getDb = async () => {
   const result = await request;
   console.log('result.value', result);
   //return result;
-  return result?.value;
+  return result[0].value;
   //console.error('getDb not implemented');
 };
 initdb();

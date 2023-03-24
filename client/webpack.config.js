@@ -31,33 +31,33 @@ module.exports = () => {
       }),
 
       // Injects custom servie worker
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
-      }),
+      // new InjectManifest({
+      //   swSrc: './src-sw.js',
+      //   swDest: 'src-sw.js',
+      // }),
 
       // jw, webpackpwamanifest is a webpack plugin that generates a 'manifest.json' for your Progressive Web Application, 
       // with auto icon resizing and fingerprinting support
-      new WebpackPwaManifest({
-        // TODO: Create a manifest.json:
-        fingerprints: false,
-        inject: true,
+      // new WebpackPwaManifest({
+      //   // TODO: Create a manifest.json:
+      //   fingerprints: false,
+      //   inject: true,
 
-        name: 'Just Another Text Editor',
-        short_name: 'JATE',
-        description: 'Just Another Text Editor',
-        background_color: '#ffffff', // jw, White
-        theme_color: '#00FFFF', // jw, Aqua
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
-        icons: [
-          {
-            src: path.resolve('src/images/logo.png'), // jw, this is the original logo path
-            sizes: [96, 128, 192, 256, 384, 512], // jw, multiple sizes icons will be generated
-            destination: path.join('assets', 'icons'), // jw, new logos with multiple sizes will be saved in this path, i.e., assets/icons/***.png
-          },
-        ]
+      //   name: 'Just Another Text Editor',
+      //   short_name: 'JATE',
+      //   description: 'Just Another Text Editor',
+      //   background_color: '#ffffff', // jw, White
+      //   theme_color: '#00FFFF', // jw, Aqua
+      //   crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      //   icons: [
+      //     {
+      //       src: path.resolve('src/images/logo.png'), // jw, this is the original logo path
+      //       sizes: [96, 128, 192, 256, 384, 512], // jw, multiple sizes icons will be generated
+      //       destination: path.join('assets', 'icons'), // jw, new logos with multiple sizes will be saved in this path, i.e., assets/icons/***.png
+      //     },
+      //   ]
         
-      }),     
+      // }),     
       
     ],
 
