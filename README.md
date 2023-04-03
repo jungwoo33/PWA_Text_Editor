@@ -34,6 +34,7 @@ To use this application, follow the instruction below:
 
 ## 6. Application results:
 [GitHub:] https://github.com/jungwoo33/PWA_Text_Editor<br>
+[Heroku:] https://serene-reaches-41593.herokuapp.com/<br>
 The screenshot of the editor looks like this: `./assets/Screenshot.png` - ![Alt Text](./assets/Screenshot.png)<br>
 
 
